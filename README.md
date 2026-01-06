@@ -4,7 +4,9 @@ Control Section 방식의 SIC/XE Object Program을 가상 메모리에 적재하
 
 ## 주요 기능
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/567dad90-29d8-45f0-bb1b-133111a88087" width="600" alt="스크린샷 1"/>
+<img width="1024" height="718" alt="image" src="https://github.com/user-attachments/assets/5cb1c761-20fb-47de-bf04-477890aa25cc" />
+
+
 </p>
 
 - Object Program(H/D/T/M/E 레코드) 파싱 및 메모리 적재

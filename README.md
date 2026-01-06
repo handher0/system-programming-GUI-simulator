@@ -1,8 +1,12 @@
-# SIC/XE Control Section Simulator (SP25_simulator)
+# SIC/XE Control Section Simulator 
 
 Control Section 방식의 SIC/XE Object Program을 가상 메모리에 적재하고, 한 명령어씩 실행하면서 레지스터/메모리/명령어 흐름을 시각적으로 확인할 수 있는 Java 기반 GUI 시뮬레이터입니다.
 
 ## 주요 기능
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/567dad90-29d8-45f0-bb1b-133111a88087" width="600" alt="스크린샷 1"/>
+</p>
+
 - Object Program(H/D/T/M/E 레코드) 파싱 및 메모리 적재
 - Modification Record 기반 재배치/심볼 처리
 - Instruction 단위 실행(one step) 및 전체 실행(all)
@@ -73,42 +77,7 @@ javac -d out src/*.java
 # 실행
 java -cp out SP25_simulator.src.VisualSimulator
 ```
-
-## 테스트 방법 (수동)
-1. 프로그램 실행 후 `open` 버튼으로 `input/output_objectcode.txt` 선택
-2. 로딩 후 아래 항목을 확인
-   - H/E 레코드 정보 표시
-   - 명령어 목록 리스트 출력
-   - 레지스터 초기화 상태
-3. `실행(1step)`으로 단계별 실행 확인
-   - PC 이동, 레지스터 변화, 로그 추가 확인
-   - 타깃 주소(Target Address) 표시 확인
-4. `실행(all)`로 전체 실행 확인
-5. I/O 명령어 테스트
-   - `device/05.device`, `device/F1.device` 파일로 TD/RD/WD 동작 확인
-   - GUI의 "사용중인 장치" 필드 업데이트 확인
-
-## 참고
-- Instruction Table: `input/inst_table.txt`
-- Object Program 예시: `input/output_objectcode.txt`
-- 디바이스 파일은 `device/*.device`로 사용
-
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/567dad90-29d8-45f0-bb1b-133111a88087" width="600" alt="스크린샷 1"/>
-</p>
-
-해당 프로젝트는 Control Section 방식의 SIC/XE Object Program을 실제로 실행하고 시뮬레이션할 수 있는 시각적 도구를 개발하는 것을 목적으로 합니다.
-
-일반적으로 어셈블리 언어로 작성된 프로그램은 어셈블 과정을 거쳐 목적 코드(Object Code)로 변환되며, 이를 실제 시스템에서 실행하려면 로더와 시뮬레이터의 역할이 필요합니다. 
-
-그러나 실제 하드웨어에서 이 과정을 확인하거나 실험하기는 어렵기 때문에, 본 프로젝트에서는 가상의 환경에서 이 과정을 재현하고 그 내부 동작을 시각적으로 확인할 수 있도록 구현하였습니다.
-
-이 시뮬레이터는 사용자가 Object Program 파일을 입력으로 제공하면, 이를 가상 메모리에 적재하고 한 명령어씩 실행하며 레지스터의 변화, 현재 명령어 위치, 명령어 로그 등을 JAVA 기반 GUI를 통해 실시간으로 시각화합니다. 
-
-특히 프로그램이 수행되는 동안의 내부 상태 변화를 직관적으로 관찰할 수 있도록 메모리 상태, 레지스터 값, 수행 중인 명령어를 함께 보여주는 기능을 포함하고 있어, 학습자나 개발자가 SIC/XE 아키텍처의 작동 원리를 깊이 이해할 수 있습니다.
-
-
+## 실행 예시
 <p align="center">1. 초기 화면</p>
 <p align="center">
   <img src="https://github.com/user-attachments/assets/3a656b03-c84d-4bef-967b-08d97f007ae0" width="500" alt="스크린샷 2"/>
@@ -129,6 +98,24 @@ java -cp out SP25_simulator.src.VisualSimulator
   <img src="https://github.com/user-attachments/assets/e5f179e4-2f1e-40c0-af29-54c5bee1459f" width="500" alt="스크린샷 5"/>
 </p>
 
+## 테스트 방법 (수동)
+1. 프로그램 실행 후 `open` 버튼으로 `input/output_objectcode.txt` 선택
+2. 로딩 후 아래 항목을 확인
+   - H/E 레코드 정보 표시
+   - 명령어 목록 리스트 출력
+   - 레지스터 초기화 상태
+3. `실행(1step)`으로 단계별 실행 확인
+   - PC 이동, 레지스터 변화, 로그 추가 확인
+   - 타깃 주소(Target Address) 표시 확인
+4. `실행(all)`로 전체 실행 확인
+5. I/O 명령어 테스트
+   - `device/05.device`, `device/F1.device` 파일로 TD/RD/WD 동작 확인
+   - GUI의 "사용중인 장치" 필드 업데이트 확인
+
+## 참고
+- Instruction Table: `input/inst_table.txt`
+- Object Program 예시: `input/output_objectcode.txt`
+- 디바이스 파일은 `device/*.device`로 사용
 <p align="center">5. 실행 완료</p>
 <p align="center">
   <img src="https://github.com/user-attachments/assets/6aaf4bc7-78a0-4ef5-ae29-ffc7043c4451" width="500" alt="스크린샷 6"/>

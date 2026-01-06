@@ -4,9 +4,7 @@ Control Section 방식의 SIC/XE Object Program을 가상 메모리에 적재하
 
 ## 주요 기능
 <p align="center">
-<img width="1024" height="718" alt="image" src="https://github.com/user-attachments/assets/5cb1c761-20fb-47de-bf04-477890aa25cc" />
-
-
+<img width="1024" height="718" alt="image" src="https://github.com/user-attachments/assets/9972a3ff-445f-48d8-aa09-5644efd21a65" />
 </p>
 
 - Object Program(H/D/T/M/E 레코드) 파싱 및 메모리 적재
@@ -14,6 +12,40 @@ Control Section 방식의 SIC/XE Object Program을 가상 메모리에 적재하
 - Instruction 단위 실행(one step) 및 전체 실행(all)
 - 레지스터/현재 명령어/로그/타깃 주소 실시간 표시
 - 파일 기반 디바이스 I/O(TD/RD/WD) 시뮬레이션
+
+## 실행 방법
+```bash
+# 프로젝트 루트에서 컴파일
+javac -d out src/*.java
+
+# 실행
+java -cp out SP25_simulator.src.VisualSimulator
+```
+## 실행 예시
+<p align="center">1. 초기 화면</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3a656b03-c84d-4bef-967b-08d97f007ae0" width="500" alt="스크린샷 2"/>
+</p>
+
+<p align="center">2. 파일 오픈 시 다이얼로그 창</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/eaa7767d-ee14-48d0-99e0-bf7599c35e36" width="500" alt="스크린샷 3"/>
+</p>
+
+<p align="center">3. 로드 결과</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d6d0cf9f-530d-4d5a-badf-22da84e4755d" width="500" alt="스크린샷 4"/>
+</p>
+
+<p align="center">4. 실행 중</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e5f179e4-2f1e-40c0-af29-54c5bee1459f" width="500" alt="스크린샷 5"/>
+</p>
+
+<p align="center">5. 실행 완료</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6aaf4bc7-78a0-4ef5-ae29-ffc7043c4451" width="500" alt="스크린샷 6"/>
+</p>
 
 ## 기술 스택
 - Java (JDK 8+ 권장)
@@ -71,34 +103,7 @@ device/
 - `ModificationRecord` (SicLoader 내부 클래스)
   M 레코드 재배치 정보를 저장.
 
-## 실행 방법
-```bash
-# 프로젝트 루트에서 컴파일
-javac -d out src/*.java
 
-# 실행
-java -cp out SP25_simulator.src.VisualSimulator
-```
-## 실행 예시
-<p align="center">1. 초기 화면</p>
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/3a656b03-c84d-4bef-967b-08d97f007ae0" width="500" alt="스크린샷 2"/>
-</p>
-
-<p align="center">2. 파일 오픈 시 다이얼로그 창</p>
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/eaa7767d-ee14-48d0-99e0-bf7599c35e36" width="500" alt="스크린샷 3"/>
-</p>
-
-<p align="center">3. 로드 결과</p>
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/d6d0cf9f-530d-4d5a-badf-22da84e4755d" width="500" alt="스크린샷 4"/>
-</p>
-
-<p align="center">4. 실행 중</p>
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/e5f179e4-2f1e-40c0-af29-54c5bee1459f" width="500" alt="스크린샷 5"/>
-</p>
 
 ## 테스트 방법 (수동)
 1. 프로그램 실행 후 `open` 버튼으로 `input/output_objectcode.txt` 선택
@@ -118,7 +123,3 @@ java -cp out SP25_simulator.src.VisualSimulator
 - Instruction Table: `input/inst_table.txt`
 - Object Program 예시: `input/output_objectcode.txt`
 - 디바이스 파일은 `device/*.device`로 사용
-<p align="center">5. 실행 완료</p>
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/6aaf4bc7-78a0-4ef5-ae29-ffc7043c4451" width="500" alt="스크린샷 6"/>
-</p>
